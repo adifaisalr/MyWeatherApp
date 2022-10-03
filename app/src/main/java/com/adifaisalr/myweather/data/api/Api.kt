@@ -27,11 +27,7 @@ class Api {
             return baseConfigurator.newHttpClientBuilder()
         }
 
-        const val DEFAULT_BASE_URL = "https://api.themoviedb.org/3/"
-        const val DEFAULT_BASE_IMAGE_URL = "https://image.tmdb.org/t/p/"
-        const val IMAGE_SIZE_W92 = "w92/"
-        const val IMAGE_SIZE_W1280 = "w1280/"
-        const val IMAGE_SIZE_ORIGINAL = "original/"
+        const val DEFAULT_BASE_URL = "https://api.openweathermap.org/"
         const val TIMEOUT = 30000
 
         val defaultInterceptor = Interceptor { chain ->

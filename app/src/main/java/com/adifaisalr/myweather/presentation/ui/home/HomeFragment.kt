@@ -1,4 +1,4 @@
-package com.adifaisalr.myweather.ui.home
+package com.adifaisalr.myweather.presentation.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
