@@ -36,7 +36,7 @@ class Api {
             try {
                 val originalHttpUrl: HttpUrl = request.url
                 val url: HttpUrl = originalHttpUrl.newBuilder()
-                    .addQueryParameter("api_key", BuildConfig.API_KEY)
+                    .addQueryParameter("appid", BuildConfig.API_KEY)
                     .build()
                 val requestBuilder = request.newBuilder().url(url)
                 chain.proceed(requestBuilder.build())
