@@ -3,4 +3,12 @@
     <string name="title_home">Home</string>
     <string name="title_favorite">Favorite</string>
     <string name="title_search_city">Search City</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Search City</string>
+    <string name="empty_search_result">No results for <b>%s</b></string>
+    <string name="general_error">Unable to get data, please try again later</string>
+    <string name="retry">Retry</string>
+    <string name="searchitem_state">State : %s</string>
+    <string name="searchitem_country">Country : %s</string>
+    <string name="set_default">Set as default</string>
 </resources>

@@ -60,6 +60,8 @@ dependencies {
     implementation deps.lifecycle.viewmodel_ktx
     implementation deps.lifecycle.runtime
     implementation deps.lifecycle.java8
+    implementation deps.room.runtime
+    implementation deps.room.ktx
 
     implementation deps.constraint_layout
     implementation deps.kotlin.stdlib
@@ -84,6 +86,7 @@ dependencies {
     kapt deps.lifecycle.compiler
     kapt deps.glide.compiler
     kapt deps.hilt.compiler
+    kapt deps.room.compiler
 
     testImplementation deps.junit
     testImplementation deps.okhttp.mock_web_server
