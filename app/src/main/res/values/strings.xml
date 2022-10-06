@@ -11,4 +11,5 @@
     <string name="searchitem_state">State : %s</string>
     <string name="searchitem_country">Country : %s</string>
     <string name="set_default">Set as default</string>
+    <string name="empty_favorite">No Favorite Cities</string>
 </resources>

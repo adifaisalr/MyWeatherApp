@@ -136,7 +136,7 @@ class SearchFragment : Fragment() {
         // Dismiss keyboard
         dismissKeyboard(v.windowToken)
         viewModel.setQuery(query)
-        viewModel.searchMedia()
+        viewModel.searchCity()
     }
 
     private fun dismissKeyboard(windowToken: IBinder) {

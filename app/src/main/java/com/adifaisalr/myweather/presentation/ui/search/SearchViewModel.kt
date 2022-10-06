@@ -41,7 +41,7 @@ class SearchViewModel @Inject constructor(
         _query = input
     }
 
-    fun searchMedia() = viewModelScope.launch {
+    fun searchCity() = viewModelScope.launch {
         _searchResult.postValue(DataHolder.Loading)
         val response = searchUseCase(query, SEARCH_LIMIT)
         response.peekData?.let {
