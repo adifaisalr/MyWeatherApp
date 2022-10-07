@@ -18,7 +18,11 @@ interface WeatherService {
     ): DataHolder<List<GeoLocationItem>>
 
     @GET("data/2.5/weather")
-    suspend fun getCurrentWeather(@Query("q") cityCode: String): DataHolder<CurrentWeather>
+    suspend fun getCurrentWeather(
+        @Query("lat") lat: Double,
+        @Query("lon") lon: Double,
+        @Query("units") units: String = "metric"
+    ): DataHolder<CurrentWeather>
 
     @GET("data/2.5/forecast")
     suspend fun getForecastWeather(@Query("q") cityCode: String, @Query("cnt") days: Int): DataHolder<ForecastWeather>

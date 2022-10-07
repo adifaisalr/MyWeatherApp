@@ -7,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.adifaisalr.myweather.domain.model.DataHolder
 import com.adifaisalr.myweather.domain.model.GeoLocationItem
 import com.adifaisalr.myweather.domain.usecase.GetAllCityUseCase
+import com.adifaisalr.myweather.domain.usecase.GetCityByNameUseCase
+import com.adifaisalr.myweather.domain.usecase.ResetDefaultCityUseCase
 import com.adifaisalr.myweather.domain.usecase.SaveCityUseCase
 import com.adifaisalr.myweather.domain.usecase.SearchCityUseCase
 import com.adifaisalr.myweather.domain.usecase.UpdateCityUseCase
@@ -18,10 +20,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(
-    val searchUseCase: SearchCityUseCase,
-    val saveCityUseCase: SaveCityUseCase,
-    val updateCityUseCase: UpdateCityUseCase,
-    val loadAllCityUseCase: GetAllCityUseCase
+    private val searchUseCase: SearchCityUseCase,
+    private val saveCityUseCase: SaveCityUseCase,
+    private val updateCityUseCase: UpdateCityUseCase,
+    private val getCityByNameUseCase: GetCityByNameUseCase,
+    private val resetDefaultCityUseCase: ResetDefaultCityUseCase
 ) : ViewModel() {
 
     private var _query = ""
@@ -46,7 +49,7 @@ class SearchViewModel @Inject constructor(
         val response = searchUseCase(query, SEARCH_LIMIT)
         response.peekData?.let {
             insertCities(it).await()
-            val cities = loadAllCityUseCase()
+            val cities = getCityByNameUseCase(query)
             _searchResult.postValue(DataHolder.Success(cities))
         } ?: _searchResult.postValue(response)
     }
@@ -57,6 +60,10 @@ class SearchViewModel @Inject constructor(
 
     fun updateCity(city: GeoLocationItem) = viewModelScope.async {
         updateCityUseCase(city)
+    }
+
+    fun resetDefaultCity() = viewModelScope.async {
+        resetDefaultCityUseCase()
     }
 
     companion object {

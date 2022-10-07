@@ -8,8 +8,8 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class GetCurrentWeatherUseCase @Inject constructor(private val mediaRepository: WeatherRepository) {
-    suspend operator fun invoke(cityCode: String): DataHolder<CurrentWeather> =
+    suspend operator fun invoke(lat: Double, lon: Double): DataHolder<CurrentWeather> =
         withContext(Dispatchers.IO) {
-            return@withContext mediaRepository.getCurrentWeather(cityCode)
+            return@withContext mediaRepository.getCurrentWeather(lat, lon)
         }
 }

@@ -45,7 +45,7 @@ class SearchResultAdapter(
                 }
             }
             actionSetDefaultClickListener?.let { listener ->
-                binding.defaultBtn.setOnClickListener {
+                binding.root.setOnClickListener {
                     listener.invoke(item, position)
                 }
             }

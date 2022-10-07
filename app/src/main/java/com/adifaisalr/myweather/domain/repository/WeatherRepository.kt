@@ -7,13 +7,15 @@ import com.adifaisalr.myweather.domain.model.GeoLocationItem
 
 interface WeatherRepository {
     suspend fun searchCity(query: String, limit: Int): DataHolder<List<GeoLocationItem>>
-    suspend fun getCurrentWeather(cityCode: String): DataHolder<CurrentWeather>
+    suspend fun getCurrentWeather(lat: Double, lon: Double): DataHolder<CurrentWeather>
     suspend fun getForecastWeather(cityCode: String, cnt: Int): DataHolder<ForecastWeather>
     suspend fun insertCity(city: GeoLocationItem): Long
     suspend fun insertCities(cities: List<GeoLocationItem>): List<Long>
     suspend fun loadAllCities(): List<GeoLocationItem>
+    suspend fun loadCitiesByName(name: String): List<GeoLocationItem>
     suspend fun loadFavoriteCities(): List<GeoLocationItem>
     suspend fun loadDefaultCity(): GeoLocationItem
     suspend fun updateCity(city: GeoLocationItem): Int
     suspend fun deleteAllCities(): Int
+    suspend fun resetDefaultCity(): Int
 }

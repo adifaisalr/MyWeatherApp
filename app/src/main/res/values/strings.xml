@@ -7,9 +7,14 @@
     <string name="search_hint">Search City</string>
     <string name="empty_search_result">No results for <b>%s</b></string>
     <string name="general_error">Unable to get data, please try again later</string>
+    <string name="no_city">No default city selected, please set default city first</string>
     <string name="retry">Retry</string>
     <string name="searchitem_state">State : %s</string>
     <string name="searchitem_country">Country : %s</string>
     <string name="set_default">Set as default</string>
     <string name="empty_favorite">No Favorite Cities</string>
+    <string name="todays_weather">Today\'s Weather - %s</string>
+    <string name="temp_range">Temp : %1$.2f°C - %2$.2f°C</string>
+    <string name="humidity">Humidity : %d</string>
+    <string name="wind_speed">Wind speed : %.2f</string>
 </resources>

@@ -12,11 +12,13 @@ import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.adifaisalr.myweather.R
 import com.adifaisalr.myweather.databinding.FragmentSearchBinding
 import com.adifaisalr.myweather.domain.model.DataHolder
 import com.adifaisalr.myweather.domain.model.GeoLocationItem
 import com.adifaisalr.myweather.presentation.ui.adapter.SearchResultAdapter
+import com.adifaisalr.myweather.presentation.util.NavigationUtils.safeNavigate
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -126,7 +128,13 @@ class SearchFragment : Fragment() {
                     if (updatedRow > 0) adapter.updateData(newData, pos)
                 }
             },
-            actionSetDefaultClickListener = { city, pos -> }
+            actionSetDefaultClickListener = { city, _ ->
+                val action = SearchFragmentDirections.actionNavigationSearchCityToNavigationHome(
+                    city.lat.toFloat(),
+                    city.lon.toFloat()
+                )
+                findNavController().safeNavigate(action)
+            }
         )
         binding.userList.adapter = adapter
     }

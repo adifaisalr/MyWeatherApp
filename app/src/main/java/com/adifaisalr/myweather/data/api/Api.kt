@@ -28,6 +28,8 @@ class Api {
         }
 
         const val DEFAULT_BASE_URL = "https://api.openweathermap.org/"
+        const val DEFAULT_BASE_IMAGE_URL = "https://openweathermap.org/img/wn/"
+        const val IMAGE_URL_POSTFIX = "@2x.png"
         const val TIMEOUT = 30000
 
         val defaultInterceptor = Interceptor { chain ->

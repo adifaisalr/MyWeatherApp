@@ -2,16 +2,13 @@ package com.adifaisalr.myweather.domain.model
 
 import androidx.annotation.Keep
 import androidx.room.Entity
-import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.adifaisalr.myweather.data.db.converter.LocalNamesDataConverter
 import com.google.gson.annotations.SerializedName
 
 @Keep
-@Entity
+@Entity(primaryKeys = ["name", "lat", "lon"])
 data class GeoLocationItem(
-    @PrimaryKey(autoGenerate = true)
-    val id: Long = 0,
     @SerializedName("country")
     val country: String,
     @SerializedName("lat")
@@ -24,7 +21,7 @@ data class GeoLocationItem(
     @SerializedName("name")
     val name: String,
     @SerializedName("state")
-    val state: String,
+    val state: String?="",
     var isFavorite: Boolean = false,
     var isDefault: Boolean = false
 ) {

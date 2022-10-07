@@ -24,11 +24,17 @@ abstract class WeatherDao {
     @Query("SELECT * FROM `GeoLocationItem`")
     abstract fun getAllCitites(): List<GeoLocationItem>
 
+    @Query("SELECT * FROM `GeoLocationItem` WHERE name LIKE '%' || :name || '%'")
+    abstract fun getCitiesByName(name: String): List<GeoLocationItem>
+
     @Query("SELECT * FROM `GeoLocationItem` WHERE isFavorite = 1")
     abstract fun getFavoriteCities(): List<GeoLocationItem>
 
     @Query("SELECT * FROM `GeoLocationItem` WHERE isDefault = 1")
     abstract fun getDefaultCity(): GeoLocationItem
+
+    @Query("UPDATE `GeoLocationItem` SET isDefault = 0")
+    abstract fun resetDefaultCity(): Int
 
     @Update
     abstract suspend fun updateCity(city: GeoLocationItem): Int

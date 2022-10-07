@@ -17,8 +17,8 @@ class WeatherRepositoryImpl(
         return service.searchCity(query, limit)
     }
 
-    override suspend fun getCurrentWeather(cityCode: String): DataHolder<CurrentWeather> {
-        return service.getCurrentWeather(cityCode)
+    override suspend fun getCurrentWeather(lat: Double, lon: Double): DataHolder<CurrentWeather> {
+        return service.getCurrentWeather(lat, lon)
     }
 
     override suspend fun getForecastWeather(cityCode: String, cnt: Int): DataHolder<ForecastWeather> {
@@ -51,5 +51,13 @@ class WeatherRepositoryImpl(
 
     override suspend fun deleteAllCities(): Int {
         return dao.deleteAllCities()
+    }
+
+    override suspend fun resetDefaultCity(): Int {
+        return dao.resetDefaultCity()
+    }
+
+    override suspend fun loadCitiesByName(name: String): List<GeoLocationItem> {
+        return dao.getCitiesByName(name)
     }
 }
