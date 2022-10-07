@@ -14,8 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    val getCurrentWeatherUseCase: GetCurrentWeatherUseCase,
-    val getForecastWeatherUseCase: GetForecastWeatherUseCase
+    val getCurrentWeatherUseCase: GetCurrentWeatherUseCase
 ) : ViewModel() {
 
     private val _currentWeatherResult: MutableLiveData<DataHolder<CurrentWeather>> =
